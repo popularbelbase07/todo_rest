@@ -1,20 +1,31 @@
-1. chech version of python 
+* chech version of python 
 
-python --version
+        python --version
 
-2. setup environment for python project
+* setup environment for python project
 
-python -m venv .venv
+        python -m venv .venv
 
-3. install python and upgrade
+* install python and upgrade
 
-pip install --upgrade pip
+        pip install --upgrade pip
 
-4. Install django and it's version 4
+* Install django and it's version 4
 
-pip install django
+        pip install django
 
-5. create project level application.
+* create project level application.
 
-django-admin startproject todo_rest
+        django-admin startproject todo_rest
+
+* create app level application
+
+        python manage.py startapp todo_app
+
+* run your project
+
+        python manage.py runserver
+
+
+
 
