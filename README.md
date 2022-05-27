@@ -26,6 +26,21 @@
 
         python manage.py runserver
 
+* create requirements.txt files which holds the all installed packages
+
+        pip freeze > requirements.txt
+
+* Migrate the data in sqlite3 database 
+
+        python manage.py makemigrations 
+        python manage.py migrate
+
+* create super user
+
+        python manage.py createsuperuser
+
+
+
 
 
 
