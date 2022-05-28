@@ -1,7 +1,9 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
 class Todo(models.Model):
+   user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
    text = models.CharField(max_length=200)
    status = models.BooleanField(default=False)
 

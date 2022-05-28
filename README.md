@@ -39,6 +39,10 @@
 
         python manage.py createsuperuser
 
+* create login app
+
+        python manage.py startapp login_app
+
 
 
 
