@@ -1,5 +1,8 @@
 from lib2to3.pgen2 import token
 from django.shortcuts import render
+# Adding messaging for reset the password
+from . messaging import email_message
+import django_rq
 
 # Create your views here.
 from django.shortcuts import render, reverse
@@ -96,6 +99,12 @@ def request_password_reset(request):
             prr.user = user
             prr.save()
             print(prr)
+            # Adding messaging for reset the password
+            django_rq.enqueue(email_message, {
+                
+                'token': prr.token,
+                'email': prr.user.email,
+            })
             return HttpResponseRedirect(reverse('login_app:password_reset'))
 
     return render(request, 'login_app/request_password_reset.html')

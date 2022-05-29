@@ -47,6 +47,12 @@
 
         python manage.py startapp ipfilter_middleware
 
+* install Django RQ simply run (in your activated environment)
+         
+         pip install django-rq requests
+         python manage.py rqworker
+
+
 
 
 
