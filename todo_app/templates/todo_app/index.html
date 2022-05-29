@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Todo</title>
-</head>
-<body>
-   <h1>Todo</h1>
-   <hr />
+{% extends 'todo_app/base.html' %}
+{% block content %}
+<hr />
       <ul>
       {% for todo in todos  %}
             <li>
@@ -29,6 +22,7 @@
       <button>Create todo</button>
    </form>
    <hr />
+   {% endblock %}
+   {% block footer %}
    <a href="{% url 'todo_app:completed_todos' %}">Completed Todos</a>
-</body>
-</html>
+   {% endblock %}

@@ -3,7 +3,9 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Todo
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
    if request.method == "POST":
       text = request.POST["text"]
@@ -19,6 +21,7 @@ def index(request):
    }
    return render(request, 'todo_app/index.html', context)
 
+@login_required
 def change_status(request):
    pk = request.POST["pk"]
    todo = get_object_or_404(Todo, pk=pk)
@@ -28,7 +31,7 @@ def change_status(request):
       todo.status = False
    todo.save()
    return HttpResponseRedirect(reverse('todo_app:index'))
-
+@login_required
 def completed_todos(request):
    todos = Todo.objects.filter(status=True)
    context = {
@@ -36,6 +39,7 @@ def completed_todos(request):
    }
    return render(request, 'todo_app/completed_todos.html', context)
 
+@login_required
 def delete_todo(request):
     print(request.META ['HTTP_REFERER'])
     pk = request.POST["pk"]
