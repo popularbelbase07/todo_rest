@@ -43,6 +43,10 @@
 
         python manage.py startapp login_app
 
+* create a middleware app
+
+        python manage.py startapp ipfilter_middleware
+
 
 
 

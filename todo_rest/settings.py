@@ -42,7 +42,15 @@ INSTALLED_APPS = [
    
 ]
 
+IPFILTER_MIDDLEWARE = {
+   'ALLOWED_IP_ADDRESSES': [
+      '127.0.0.1',
+   ]
+}
+
+
 MIDDLEWARE = [
+    'ipfilter_middleware.middleware.IPFilterMiddleware', #new middleware is added
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
